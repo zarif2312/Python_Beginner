@@ -11,5 +11,5 @@ git push
 
 
 
-//if you want to get file from repo
+//if you want to get file from repo//
 git pull	
