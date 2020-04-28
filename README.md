@@ -2,5 +2,6 @@
 
 This is a note for basic command
 
-Zarif here, from Malaysia.
-I'm trying to get a new knowledge and experience with GitHub.
+## h2 Basic Command for Git
+
+
