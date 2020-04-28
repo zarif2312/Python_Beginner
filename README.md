@@ -33,3 +33,8 @@ This is a note for basic command
 **Utility :** commits your changes and sets it to new commit object for your remote.
 
 **How to : _git commit -m ”sweet little commit message”_**
+
+### 7) git push/git pull
+**Utility :** Push or Pull your changes to remote. If you have added and committed your changes and you want to push them. Or if your remote has updated and you want those latest changes.
+
+**How to : _git pull <:remote:> <:branch:>_** and **_git push <:remote:> <:branch:>_**
