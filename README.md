@@ -28,3 +28,8 @@ This is a note for basic command
 **Utility :** adds changes to stage/index in your working directory.
 
 **How to : _git add ._**
+
+### 6) git commit
+**Utility :** commits your changes and sets it to new commit object for your remote.
+
+**How to : _git commit -m ”sweet little commit message”_**
