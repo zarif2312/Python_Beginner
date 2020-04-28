@@ -7,6 +7,6 @@ This is a note for basic command
   ## git config
   **Utility** : To set your user name and email in the main configuration file.
   
-  **How to** : To check your name and email type in git config --global user.name and git config --global user.email. And to set your new     email or name git config --global user.name = “Dhruv Nenwani” and git config --global user.email = “nendhruv@gmail.com”
+  **How to** : To check your name and email type in **_git config --global user.name_** and **_git config --global user.email_**. And to set your new email or name **_git config --global user.name = “Dhruv Nenwani”_** and **_git config --global user.email = “nendhruv@gmail.com”_**
   
 
