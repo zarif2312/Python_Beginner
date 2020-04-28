@@ -3,7 +3,8 @@
 This is a note for basic command
 
 ## Basic Command for Git
-
+<details>
+  <summary>Click to expand!</summary>
 ### 1) git config
 **Utility** : To set your user name and email in the main configuration file.
   
@@ -68,3 +69,4 @@ This is a note for basic command
 **Utility :** To check what remote/source you have or add a new remote.
 
 **How to : _git remote_** to check and list. And **_git remote add <:remote_url:>_**
+</details>
