@@ -27,4 +27,4 @@ This is a note for basic command
 ### 5) git add
 **Utility :** adds changes to stage/index in your working directory.
 
-**How to : _git add .**
+**How to : _git add ._**
