@@ -38,3 +38,31 @@ This is a note for basic command
 **Utility :** Push or Pull your changes to remote. If you have added and committed your changes and you want to push them. Or if your remote has updated and you want those latest changes.
 
 **How to : _git pull <:remote:> <:branch:>_** and **_git push <:remote:> <:branch:>_**
+
+### 8) git branch
+**Utility :** Lists out all the branches.
+
+**How to : _git branch_** or **_git branch -a_** to list all the remote branches as well.
+
+### 9) git checkout
+**Utility :** Switch to different branches
+
+**How to : _git checkout <:branch:>_** or **_git checkout -b <:branch:>_** if you want to create and switch to a new branch.
+
+### 10) git stash
+**Utility :** Save changes that you don’t want to commit immediately.
+
+**How to : _git stash_** in your working directory. **_git stash_** apply if you want to bring your saved changes back.
+
+### 11) git merge
+**Utility :** Merge two branches you were working on.
+
+**How to :** Switch to branch you want to merge everything in. **_git merge <:branch_you_want_to_merge:>_**
+
+### 12) git reset
+**Utility :** You know when you commit changes that are not complete, this sets your index to the latest commit that you want to work on with.
+**How to : _git reset <:mode:> <:COMMIT:>_**
+
+### 13) git remote
+**Utility **: To check what remote/source you have or add a new remote.
+**How to : _git remote_** to check and list. And **_git remote add <:remote_url:>_**
