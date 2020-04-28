@@ -1,0 +1,7 @@
+To Start a project, first use this command:
+  django-admin startproject nameofyourproject
+
+To publish your django to web browser, use this command:
+  python manage.py runserver
+ 
+ 
