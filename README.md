@@ -2,6 +2,6 @@
 
 This is a note for basic command
 
-## h2 Basic Command for Git
+## Basic Command for Git
 
 
