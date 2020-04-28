@@ -23,3 +23,8 @@ This is a note for basic command
 **Utility :** To check the status of files you’ve changed in your working directory, i.e, what all has changed since your last commit.
 
 **How to : _git status_** in your working directory. lists out all the files that have been changed.
+
+### 5) git add
+**Utility :** adds changes to stage/index in your working directory.
+
+**How to : _git add .**
