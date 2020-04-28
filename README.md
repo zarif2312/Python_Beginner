@@ -61,8 +61,10 @@ This is a note for basic command
 
 ### 12) git reset
 **Utility :** You know when you commit changes that are not complete, this sets your index to the latest commit that you want to work on with.
+
 **How to : _git reset <:mode:> <:COMMIT:>_**
 
 ### 13) git remote
-**Utility **: To check what remote/source you have or add a new remote.
+**Utility :** To check what remote/source you have or add a new remote.
+
 **How to : _git remote_** to check and list. And **_git remote add <:remote_url:>_**
