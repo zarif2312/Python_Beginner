@@ -14,3 +14,7 @@ This is a note for basic command
 
 **How to** : **_git init_** in the root of your project directory.
 
+### 3) git clone
+**Utility :** To copy a git repository from remote source, also sets the remote to original source so that you can pull again.
+
+**How to : _git clone <:clone git url:>_**
