@@ -11,5 +11,6 @@ This is a note for basic command
   
 ### 2) git init
 **Utility** : To initialise a git repository for a new or existing project.
+
 **How to** : **_git init_** in the root of your project directory.
 
