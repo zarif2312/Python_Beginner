@@ -4,4 +4,5 @@ This is a note for basic command
 
 ## Basic Command for Git
 
+  ## git config
 
