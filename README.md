@@ -18,3 +18,7 @@ This is a note for basic command
 **Utility :** To copy a git repository from remote source, also sets the remote to original source so that you can pull again.
 
 **How to : _git clone <:clone git url:>_**
+
+### 4) git status
+**Utility :** To check the status of files you’ve changed in your working directory, i.e, what all has changed since your last commit.
+**How to : _git status_** in your working directory. lists out all the files that have been changed.
