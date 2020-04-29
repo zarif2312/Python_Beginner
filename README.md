@@ -76,7 +76,7 @@ This is a note for basic command
 ## Basic Command for Django
 
 ### 1) 01porjectone
-<projectone>
+<details>
   <summary>Click to expand!</summary>
   
 To create a new django project use below command:
@@ -113,6 +113,6 @@ urlpatterns = [
 ```
 Finally, use command **_python manage.py runserver_** to make sure it is successfull.
 
-</projectone>
+</details>
 
 ### 2) projecttwo
