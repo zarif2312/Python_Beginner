@@ -76,7 +76,9 @@ This is a note for basic command
 ## Basic Command for Django
 
 ### 1) 01porjectone
-
+<projectone>
+  <summary>Click to expand!</summary>
+  
 To create a new django project use below command:
 
 **_django-admin startproject helloworld_**
@@ -110,3 +112,6 @@ urlpatterns = [
 ]
 ```
 Finally, use command **_python manage.py runserver_** to make sure it is successfull.
+</projectone>
+
+### 2) projecttwo
