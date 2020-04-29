@@ -85,4 +85,10 @@ after that, create an app in your project by using below command, your app folde
 
 **_python manage.py startapp yourappname_**
 
-At **_settings.py_** file, insert the name of your app in **STTALLED_APPS**
+At **_settings.py_** file at the main project folder, insert the name of your app in **INSTALLED_APPS**
+
+In **_views.py_** file, you can create a simple httpresponse such as:
+
+from django.Http import HttpResponse
+def homePageView(request):
+  return HttpResponse('This will shown in the browser')
