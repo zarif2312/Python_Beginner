@@ -75,6 +75,14 @@ This is a note for basic command
 
 ## Basic Command for Django
 
-python django-admin startproject yournameproject
+### 1) 01porjectone
 
-python manage.py startapp yourappname
+To create a new django project use below command:
+
+**_django-admin startproject yournameproject_**
+
+after that, create an app in your project by using below command, your app folder will appear:
+
+**_python manage.py startapp yourappname_**
+
+At **_settings.py_** file, insert the name of your app in **STTALLED_APPS**
