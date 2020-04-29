@@ -102,3 +102,10 @@ urlpatterns = [
     path('', views.homePageView, name='home'),
 ]
 ```
+to connect the path from hola project, you need to register it in the **_url.py_** at the main app:
+```python
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('hola.urls')),
+]
+```
