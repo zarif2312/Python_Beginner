@@ -112,6 +112,7 @@ urlpatterns = [
 ]
 ```
 Finally, use command **_python manage.py runserver_** to make sure it is successfull.
+
 </projectone>
 
 ### 2) projecttwo
