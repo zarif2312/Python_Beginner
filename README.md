@@ -89,8 +89,9 @@ At **_settings.py_** file at the main project folder, insert the name of your ap
 
 In **_views.py_** file, you can create a simple httpresponse such as:
 
+'''python
 from django.Http import HttpResponse
-
 def homePageView(request):
-
   return HttpResponse('This will shown in the browser')
+'''
+
