@@ -109,3 +109,4 @@ urlpatterns = [
     path('', include('hola.urls')),
 ]
 ```
+Finally, use command **_python manage.py runserver_** to make sure it is successfull.
