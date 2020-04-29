@@ -72,3 +72,9 @@ This is a note for basic command
 **How to : _git remote_** to check and list. And **_git remote add <:remote_url:>_**
 
 </details>
+
+## Basic Command for Django
+
+python django-admin startproject yournameproject
+
+python manage.py startapp yourappname
