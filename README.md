@@ -116,3 +116,24 @@ Finally, use command **_python manage.py runserver_** to make sure it is success
 </details>
 
 ### 2) projecttwo
+
+In this project, we want to play with template. Setup the project, create a new app named **_website_**. Then, create new folder at the base directory named **_templates_**
+
+To connect **_templates_** folder into the main project, in **_setting.py_** , at the **_TEMPLATES_**, insert the following code:
+```python
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+```
