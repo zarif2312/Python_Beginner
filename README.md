@@ -79,11 +79,11 @@ This is a note for basic command
 
 To create a new django project use below command:
 
-**_django-admin startproject yournameproject_**
+**_django-admin startproject helloworld_**
 
 after that, create an app in your project by using below command, your app folder will appear:
 
-**_python manage.py startapp yourappname_**
+**_python manage.py startapp hola_**
 
 At **_settings.py_** file at the main project folder, insert the name of your app in **INSTALLED_APPS**
 
@@ -94,4 +94,11 @@ from django.Http import HttpResponse
 def homePageView(request):
   return HttpResponse('This will shown in the browser')
 ```
-
+Then, create a **_urls.py_** file in **hola** folder and write the following code:
+```python
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('', views.homePageView, name='home'),
+]
+```
