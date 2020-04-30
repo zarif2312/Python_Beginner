@@ -169,4 +169,12 @@ Runserver to see if it is works.
 {% block content %}
 {% endblock %}
 ```
+2. Then extend the **_nav.html_** page to **_home.html_**, **_about.html_** and **_contact.html_** with the following code: 
+```html
+{% extends 'nav.html' %}
+{% block content %}
+<h1>This is my website homepage</h1>
+{% endblock %}
+```
+repeat the 2. step into **_about.html_** page and **_contact.html_** page
 </details>
