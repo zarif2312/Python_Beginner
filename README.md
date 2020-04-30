@@ -117,7 +117,7 @@ Finally, use command **_python manage.py runserver_** to make sure it is success
 
 ### 2) projecttwo
 
-In this project, we want to play with template. Setup the project, create a new app named **_website_**. Then, create new folder at the base directory named **_templates_**
+In this project, we want to homepage template. Setup the project, create a new app named **_website_**. Then, create new folder at the base directory named **_templates_**
 
 To connect **_templates_** folder into the main project, in **_setting.py_** , at the **_TEMPLATES_**, insert the following code:
 ```python
@@ -137,3 +137,22 @@ TEMPLATES = [
     },
 ]
 ```
+after that, in **_views.py_** in **website** folder, remove all the existing coding and add the following code.
+```python
+  from django.views.generic import TemplateView
+  class HomePageView(TemplateView):
+    template_name = 'home.html'
+```
+Then, set the path at **_setting.py_** at the main project folder.
+```python
+path('', include('website.urls')),
+```
+Then create **_urls.py_** file in the website folder and write this code:
+```python
+from django.urls import path
+from . import views
+  URLSPATTER = [
+    path('', views.HomePageView.as_view(), name='home'),
+  ]
+```
+Runserver to see if it is works.
