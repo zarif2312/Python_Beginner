@@ -157,4 +157,16 @@ from . import views
   ]
 ```
 Runserver to see if it is works.
+
+**Exercise**: Create a aboutus and contact us hmtl with the same step as above
+
+#### Pre built templates
+1. Create **_nav.html_** file in template folder. add the following code:
+```html
+<header>
+    <a href=" {% url 'home' %} ">Home</a> | <a href=" {% url 'about' %}">about us</a> | <a href=" {% url 'contact' %}">contact us</a>
+</header>
+{% block content %}
+{% endblock %}
+```
 </details>
