@@ -116,7 +116,8 @@ Finally, use command **_python manage.py runserver_** to make sure it is success
 </details>
 
 ### 2) projecttwo
-
+<details>
+  <summary>Click to expand!</summary>
 In this project, we want to homepage template. Setup the project, create a new app named **_website_**. Then, create new folder at the base directory named **_templates_**
 
 To connect **_templates_** folder into the main project, in **_setting.py_** , at the **_TEMPLATES_**, insert the following code:
@@ -156,3 +157,4 @@ from . import views
   ]
 ```
 Runserver to see if it is works.
+</details>
