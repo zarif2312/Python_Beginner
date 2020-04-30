@@ -151,7 +151,7 @@ Then create **_urls.py_** file in the website folder and write this code:
 ```python
 from django.urls import path
 from . import views
-  URLSPATTER = [
+  urlpatterns = [
     path('', views.HomePageView.as_view(), name='home'),
   ]
 ```
