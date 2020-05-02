@@ -204,7 +204,7 @@ whenever you edit the database in **_models.py_**, you need to make a migration.
 
 Then, we need to generate **admin ID** and **password**. To do that, 
 
-**_ython manage.py createsuperuser_**
+**_python manage.py createsuperuser_**
 
 after that, you can login the admin site
 
@@ -233,7 +233,7 @@ class homePageView(ListView):
 ```
 then, create a **temlplates** folder and create a **_home.html_**. Setup as we learn before.
 
-To make our data appear in frontend. we need to do something in the home.html. 
+To make our data appear in frontend. we need to do something in the **_home.html_**. 
 ```html
   {% for c in object_list %}
   <li>
