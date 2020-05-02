@@ -180,7 +180,8 @@ repeat the 2. step into **_about.html_** page and **_contact.html_** page
 </details>
 
 ### 3) projectthree
-
+<details>
+  <summary>Click to expand!</summary>
 In this project, we want to interact with the database.
 
 First, setup a new project, named commandr. And create an app named cmdr. We create a database in **_models.py_** files, then we need to register it in **_admin.py_** file.
@@ -245,3 +246,5 @@ To make our data appear in frontend. we need to do something in the **_home.html
   {% endfor %}
 ```
 the above code will get the data from the **_models.py_** file
+</details>
+  
