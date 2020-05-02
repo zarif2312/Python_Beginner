@@ -178,3 +178,43 @@ Runserver to see if it is works.
 ```
 repeat the 2. step into **_about.html_** page and **_contact.html_** page
 </details>
+
+### 3) projectthree
+
+In this project, we want to interact with the database.
+
+First, setup a new project, named commandr. And create an app named cmdr. We create a database in **_models.py_** files, then we need to register it in **_admin.py_** file.
+
+python manage.py migrate . to create an initial database based on defualt setting.
+
+create a simple database in models.py file 
+```python
+class Cmdr (models.Model):
+    text = models.TextField()
+```
+
+python manage.py makemigrations cmdr
+
+python manage.py migrate cmdr
+
+whenever you edit the database in models.py, you need to make a migration.
+
+Then, we need to generate admin ID and password. To do that, 
+
+python manage.py createsuperuser
+
+after that, you can login the admin site
+
+**We need to register our model to admin site**. to do that. go to admin.py file a write this code
+
+```python
+from .models import Cmdr
+admin.site.register(Cmdr)
+```
+run the server and you can see that Cmdr appear. 
+
+to remove/edit the naming convention in the Cmdr, write the following code, in the Cmdr class in models.py:
+```python
+def __str__(self):
+        return self.text
+```
