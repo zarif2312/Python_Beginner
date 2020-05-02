@@ -248,3 +248,64 @@ To make our data appear in frontend. we need to do something in the **_home.html
 the above code will get the data from the **_models.py_** file
 </details>
   
+### 4) projectfour
+
+In this project, the goal is to explore more on static file such as attach bootstrap, css, and javascript file. And also explore more on database interaction.
+
+1) Setup a project name website. and create an app named articles.
+
+2) In **_models.py_**, write the following code:
+```python
+class Article(models.Model):
+    author = models.ForeignKey(
+        'auth.User',
+        on_delete=models.CASCADE,
+    )
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+    
+    def __str__(self):
+        return self.title
+```
+3) Make a migrations and migrate the database that we just create
+
+**_python manage.py makemigrations articles_**
+
+**_python manage.py migrate articles_**
+
+4) Create a superuser so that we can log in the admin panel
+
+5) Register the model into admin file so that it can appear in admin panel
+```python
+from .models import Article
+admin.site.register(Article)
+```
+6) To setup templates, create a folder named templates and create a file named home.html and base.html. Then register templates into settings.py fille
+
+7) Create view in a views.py
+```python
+from django.views.generic import ListView
+from . models import Article
+class ArticleListView(ListView):
+    models = Article
+    templates_name = 'home.html'
+```
+
+8) create a urls.py in articles folder and insert the the following code:
+```python
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('', views.ArticleListView.as_view(), name='home.html'),
+]
+```
+
+9) in urls.py in main project, create a path for articles.
+```python
+from django.contrib import admin
+from django.urls import path, include
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('articles.urls')),
+]
+```
