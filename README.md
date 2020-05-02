@@ -185,23 +185,26 @@ In this project, we want to interact with the database.
 
 First, setup a new project, named commandr. And create an app named cmdr. We create a database in **_models.py_** files, then we need to register it in **_admin.py_** file.
 
-python manage.py migrate . to create an initial database based on defualt setting.
+to create an initial database based on default setting.
 
-create a simple database in models.py file 
+**_python manage.py migrate_** 
+
+create a simple database in **_models.py_** file 
 ```python
 class Cmdr (models.Model):
     text = models.TextField()
 ```
+Then do the below command:
 
-python manage.py makemigrations cmdr
+**_python manage.py makemigrations cmdr_**
 
-python manage.py migrate cmdr
+**_python manage.py migrate cmdr_**
 
-whenever you edit the database in models.py, you need to make a migration.
+whenever you edit the database in **_models.py_**, you need to make a migration.
 
-Then, we need to generate admin ID and password. To do that, 
+Then, we need to generate **admin ID** and **password**. To do that, 
 
-python manage.py createsuperuser
+**_ython manage.py createsuperuser_**
 
 after that, you can login the admin site
 
@@ -211,10 +214,34 @@ after that, you can login the admin site
 from .models import Cmdr
 admin.site.register(Cmdr)
 ```
-run the server and you can see that Cmdr appear. 
+run the server and you can see that **Cmdr** appear. 
 
-to remove/edit the naming convention in the Cmdr, write the following code, in the Cmdr class in models.py:
+to remove/edit the naming convention in the **Cmdr**, write the following code, in the Cmdr class in **_models.py_**:
 ```python
 def __str__(self):
         return self.text
 ```
+**Showing data to frontend**
+
+write this code in **_views.py_**
+```python 
+from django.views.generic import ListView
+from .models import Cmdr
+class homePageView(ListView):
+    model = Cmdr
+    template_name = 'home.html'
+```
+then, create a **temlplates** folder and create a **_home.html_**. Setup as we learn before.
+
+To make our data appear in frontend. we need to do something in the home.html. 
+```html
+  {% for c in object_list %}
+  <li>
+    <input type="radio" id="f-option" name="selector">
+    <label for="f-option">{{ c }}</label>
+
+    <div class="check"></div>
+  </li>
+  {% endfor %}
+```
+the above code will get the data from the **_models.py_** file
