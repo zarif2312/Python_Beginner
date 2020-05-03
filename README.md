@@ -370,3 +370,7 @@ path('article/<int:pk>', views.ArticleDetailView.as_view(), name='article_page')
 </div>
 {% endblock %}
 ```
+18) at **_home.html_** add a link to a detail.html with unique pk.
+```html
+<h3><a href="{% url 'article_page' arti.pk %}">{{ arti.title }}</a></h3>
+```
