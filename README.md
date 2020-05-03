@@ -327,7 +327,7 @@ urlpatterns = [
 </html>
 ```
 
-11) In home.html file. Insert the following code:
+11) In home.html file. Insert the following code: Then runserver
 ```html
 {% extends 'base.html' %}
 {% block content %}
@@ -339,3 +339,13 @@ urlpatterns = [
 {% endfor %}
 {% endblock %}
 ``
+12) Now, it is time to learn how to link with static files such as css file. first, create static folder at base dir. inside static folder, create a css folder. then create a **_basestyles.css_** file. make any css code as you want.
+
+13)Then we need to register static folder. To do that, go to **_settings.py_** file. add this code at the bottom:
+```python
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+```
+14) Then go to **_base.html_** file, add **_{% load static %}_** at the very top of the file. Then add below code to link with css.
+```html
+<link rel="stylesheet" href="{% static 'css/basestyles.css' %}">
+```
