@@ -349,3 +349,24 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 ```html
 <link rel="stylesheet" href="{% static 'css/basestyles.css' %}">
 ```
+15) To make URL unique, means when user click article title, it will link to detail page. to that creata a new class in **_views.py_**
+```python
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = 'detail.html'
+    context_object_name = 'object_list'
+```
+16) In **_urls.py_**, register this new view. but this time using a unique primary key.
+```python
+path('article/<int:pk>', views.ArticleDetailView.as_view(), name='article_page'),
+```
+17) Create a new html named **_detail.html_** and insert following codes
+```html
+{% extends 'base.html' %}
+{% block content %}
+<div class="dettails">
+    <h2>{{ object_list.title }}</h2>
+    <p>{{ object_list.text }}</p>
+</div>
+{% endblock %}
+```
