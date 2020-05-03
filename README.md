@@ -287,8 +287,8 @@ admin.site.register(Article)
 from django.views.generic import ListView
 from . models import Article
 class ArticleListView(ListView):
-    models = Article
-    templates_name = 'home.html'
+    model = Article
+    template_name = 'home.html'
 ```
 
 8) create a urls.py in articles folder and insert the the following code:
@@ -309,3 +309,33 @@ urlpatterns = [
     path('', include('articles.urls')),
 ]
 ```
+10) In base.html file. insert the following code:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarif's Personal Blog</title>
+</head>
+<body>
+    <div class="container">
+        {% block content %}        
+        {% endblock %}
+    </div>
+</body>
+</html>
+```
+
+11) In home.html file. Insert the following code:
+```html
+{% extends 'base.html' %}
+{% block content %}
+{% for arti in object_list %}
+    <div class="article">
+        <h3><a href="">{{ arti.title }}</a></h3>
+        <p>{{ arti.text }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
+``
