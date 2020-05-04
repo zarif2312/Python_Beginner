@@ -249,10 +249,11 @@ the above code will get the data from the **_models.py_** file
 </details>
   
 ### 4) projectfour
-
+<details>
+  <summary>Click to expand!</summary>
 In this project, the goal is to explore more on static file such as attach bootstrap, css, and javascript file. And also explore more on database interaction.
 
-1) Setup a project name website. and create an app named articles.
+1) Setup a project name website. and create an app named **articles**.
 
 2) In **_models.py_**, write the following code:
 ```python
@@ -273,14 +274,14 @@ class Article(models.Model):
 
 **_python manage.py migrate articles_**
 
-4) Create a superuser so that we can log in the admin panel
+4) Create a **superuser** so that we can log in the admin panel
 
 5) Register the model into admin file so that it can appear in admin panel
 ```python
 from .models import Article
 admin.site.register(Article)
 ```
-6) To setup templates, create a folder named templates and create a file named home.html and base.html. Then register templates into settings.py fille
+6) To setup templates, create a folder named **templates** and create a file named **_home.html_** and **_base.html_**. Then register templates into **_settings.py_** file
 
 7) Create view in a views.py
 ```python
@@ -291,7 +292,7 @@ class ArticleListView(ListView):
     template_name = 'home.html'
 ```
 
-8) create a urls.py in articles folder and insert the the following code:
+8) create a **_urls.py_** in articles folder and insert the the following code:
 ```python
 from django.urls import path
 from . import views
@@ -309,7 +310,7 @@ urlpatterns = [
     path('', include('articles.urls')),
 ]
 ```
-10) In base.html file. insert the following code:
+10) In **_base.html_** file. insert the following code:
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -327,7 +328,7 @@ urlpatterns = [
 </html>
 ```
 
-11) In home.html file. Insert the following code: Then runserver
+11) In **_home.html_** file. Insert the following code: Then runserver
 ```html
 {% extends 'base.html' %}
 {% block content %}
@@ -339,7 +340,7 @@ urlpatterns = [
 {% endfor %}
 {% endblock %}
 ```
-12) Now, it is time to learn how to link with static files such as css file. first, create static folder at base dir. inside static folder, create a css folder. then create a **_basestyles.css_** file. make any css code as you want.
+12) Now, it is time to learn how to link with static files such as css file. first, create **static** folder at base dir. inside static folder, create a css folder. then create a **_basestyles.css_** file. make any css code as you want.
 
 13)Then we need to register static folder. To do that, go to **_settings.py_** file. add this code at the bottom:
 ```python
@@ -374,3 +375,4 @@ path('article/<int:pk>', views.ArticleDetailView.as_view(), name='article_page')
 ```html
 <h3><a href="{% url 'article_page' arti.pk %}">{{ arti.title }}</a></h3>
 ```
+</details>
