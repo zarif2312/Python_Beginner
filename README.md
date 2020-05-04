@@ -388,6 +388,7 @@ path('videorequest/', include('videorequest.urls'))
 ```
 3) Create a **_urls.py_** in the videorequest folder. 
 ```python
+from . import views
 path('', views.index, name='index'),
 path('', views.vrform, name='vrform')
 ```
@@ -409,3 +410,26 @@ class Video(models.Model):
     i)  **_templates_** > **_videorequest_**  
     ii) **_static_** > **_videorequest_**
 
+7) Insert css files into ii) and html files into i)
+
+8) In **_views.py_**
+```python
+def index (request):
+  return render (request, 'videorequest/index.html')
+def vrform (request):
+  return render (request, 'videorequest/vrform.html')
+```
+At this point, you can runserver but we are missing a static files. To load static files, we need to do something at html files.
+
+9) At the top of **_index.html_** file add **_{% load static %}_** command.
+
+10) At bootsratp and css link, change it to:
+```html
+<link href="{% static 'videorequest/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'videorequest/theme.css' %}" rel="stylesheet">
+```
+11) Repeat step 9 and 10 for **_vrform.html_**
+
+12) Setup a superuser and runserver to test. Add something in database
+
+13) **Fetching data from database**. 
