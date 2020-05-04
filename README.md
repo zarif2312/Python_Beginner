@@ -376,3 +376,36 @@ path('article/<int:pk>', views.ArticleDetailView.as_view(), name='article_page')
 <h3><a href="{% url 'article_page' arti.pk %}">{{ arti.title }}</a></h3>
 ```
 </details>
+
+### 5) projectfive
+In this project, we will learn how to handle user input via forms. Templates and static files are already provided, so we don't need to do it from scratch. 
+
+1) The first step is to create a project name **_mywebsite_** and create a app named **_videorequest_**. Then register your in **_settings.py_**. Then as usual need to migrate the app.
+
+2) In the **_urls.py_**, include path for videorequest's urls.
+```python
+path('videorequest/', include('videorequest.urls'))
+```
+3) Create a **_urls.py_** in the videorequest folder. 
+```python
+path('', views.index, name='index'),
+path('', views.vrform, name='vrform')
+```
+4) Then, we need to prepare our model. In **_models.py_**
+```python 
+from django.utilis import timezone
+class Video(models.Model):
+  videotitle = models.CharField(max_length=30)
+  videodesc = models.TextField()
+  date_added = models.DateTimeField(default=timezone.now)
+  
+  def __str__(self):
+    return 'Name: {}, ID: {}'.format(self.title, self.id)
+```
+5) Then register it in **_admin.py_** file
+
+6) Next, create a new folder with subfolder named in **_videorequest_**:
+
+    i)  **_templates_** > **_videorequest_**  
+    ii) **_static_** > **_videorequest_**
+
