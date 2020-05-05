@@ -432,4 +432,73 @@ At this point, you can runserver but we are missing a static files. To load stat
 
 12) Setup a superuser and runserver to test. Add something in database
 
-13) **Fetching data from database**. 
+13) **Fetching data from database**. Fetch data from database to **_index.html_** first. In **_views.py_** file, add below code in the index function. Do not forget to import model
+```python
+def index(request):
+    videos = Video.objects.order_by('-date_added')
+    context = {'videos':videos}
+    return render(request, 'videorequest/index.html', context)
+```
+14) At **_index.html_** file, insert the following code.
+```html
+{% for v in videos %}
+      <div class="page-header">
+        <h1>{{ v.videotitle }}</h1>
+      </div>
+      <div class="well">
+        <p>{{ v.videodesc }}</p>
+      </div>
+      {% endfor %}
+```
+15) **Interaction with Django Form**. First, creata **_forms.py_** file in **videorequest** folder, and enter the following code.
+```python
+from django import forms
+class VideoForm(forms.Form):
+    videoname = forms.CharField(max_length=20,
+        widget=forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder': 'Name',
+            'id': 'inputName'
+        }))
+    videodesc = forms.CharField(widget=forms.Textarea(attrs={
+        'class': 'form-control',
+        'rows': '5',
+        'id': 'comment',
+        'placeholder': 'comment'
+    }))
+```
+16) In the **_vrform.html_**, Insert the following code:
+```html
+ <form class="form-signin" method="POST" action="{% url 'vrform' %}">
+        {% csrf_token %}
+        <h4 class="form-signin-heading">Add your video request here</h4>
+        <div class="form-group">
+          <label for="inputName" class="sr-only">Video title</label>
+          {{ form.videoname }}
+        </div>
+        <div class="form-group">
+          <label for="comment" class="sr-only">Details to be discussed in video</label>
+          {{ form.videodesc }}
+        </div>
+        <button class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
+      </form>
+```
+17) **Taking input from user and storing it in database**. In the **_views.py_** insert the following code in **vrform** function:
+```python
+def vrform(request):
+    if request.method == 'POST':
+        form = VideoForm(request.POST)
+
+        if form.is_valid():
+            new_req = Video(videotitle=request.POST['videoname'], videodesc=request.POST['videodesc'])
+            new_req.save()
+            return redirect('index')
+    else:
+        form = VideoForm()
+    
+    context = {'form': form}
+    return render (request, 'videorequest/vrform.html', context)
+```
+finally, runserver to see in the browser.
+
+
