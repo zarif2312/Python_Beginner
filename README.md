@@ -378,6 +378,8 @@ path('article/<int:pk>', views.ArticleDetailView.as_view(), name='article_page')
 </details>
 
 ### 5) projectfive
+<details>
+  <summary>Click to expand!</summary>
 In this project, we will learn how to handle user input via forms. Templates and static files are already provided, so we don't need to do it from scratch. 
 
 1) The first step is to create a project name **_mywebsite_** and create a app named **_videorequest_**. Then register your in **_settings.py_**. Then as usual need to migrate the app.
@@ -500,5 +502,5 @@ def vrform(request):
     return render (request, 'videorequest/vrform.html', context)
 ```
 finally, runserver to see in the browser.
-
+</details>
 
