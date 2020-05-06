@@ -503,8 +503,8 @@ def vrform(request):
 ```
 finally, runserver to see in the browser.
 </details>
-### 06) ProjectSix
 
+### 6)ProjectSix
 <details>
   <summary>Click to expand!</summary>
 In this project, we will learn CRUD (Create, Read, Update and Delete) concept. Copy and paste website folder from project four.
