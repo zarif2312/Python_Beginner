@@ -503,4 +503,97 @@ def vrform(request):
 ```
 finally, runserver to see in the browser.
 </details>
+### 06) ProjectSix
+<details>
+  <summary>Click to expand!</summary>
+In this project, we will learn CRUD (Create, Read, Update and Delete) concept. Copy and paste website folder from project four.
 
+1) **Create a new Article.** First, create a new template name **_article_new.html_** in templates folder and enter the following code.
+```html
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h3>This is an Update Article Page</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="save">
+</form>
+{% endblock %}
+```
+2) Then, create a new path for this template in **_urls.py_**
+```python
+path('article/new/', views.ArticleCreateView.as_view(), name='article_new' )
+```
+3) In **_views.py_** create a new class name ArticleCreateView. Dont forget to import CreateView. Then enter the following code.
+```python
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+class ArticleCreateView(CreateView):
+    model = Article
+    template_name = 'article_new.html'
+    fields = '__all__'
+    success_url = reverse_lazy('home')
+```
+4) In home.html, make sure you create an anchor tag to link to artticle_new.html
+```html
+<a href="{% url 'article_new' %}">Create a New Article</a>
+```
+Then, runserver to see it is works.
+
+5) **Edit existing article**. First, create a new html file named **_article_edit.html_**.
+```html
+{% extends 'base.html' %}
+{% block content %}
+<h3>This is an Edit Article Page</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="update">
+</form>
+{% endblock %}
+```
+6) Create a new path in **_urls.py_**
+```python
+path('article/edit/<int:pk>/', views.ArticleUpdateView.as_view(), name='article_edit' ),
+```
+7) Create ArticleUpdateView class in **_views.py_**
+```python
+class ArticleUpdateView(UpdateView):
+    model = Article
+    template_name = 'article_edit.html'
+    fields = ['title', 'text']
+    success_url = reverse_lazy('home')
+```
+8) In **_detail.html_**, create an anchor tag.
+```html
+<a href="{% url 'article_edit' batman.pk %}">Update this article</a>
+```
+Then, runserver to see it is works.
+
+9) **Delete an Article.** Create a new template name **_article_delete.html_**
+```html
+{% extends 'base.html' %}
+{% block content %}
+<h3>This is a Delete Article Page</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <h3>Warning!!!</h3>
+    <p>Confirm you want to delete {{ batman.title }}?</p>
+    <input type="submit" value="confirm">
+</form>
+{% endblock %}
+```
+10) Create a new path in **_urls.py_**
+```python
+path('article/delete/<int:pk>/', views.ArticleDeleteView.as_view(), name='article_delete' ),
+```
+11) Create ArticleDeleteView in views.py
+```python
+class ArticleDeleteView(DeleteView):
+    model = Article
+    template_name = 'article_delete.html'
+    context_object_name = 'batman'
+    success_url = reverse_lazy('home')
+```
+</details>
