@@ -597,4 +597,10 @@ class ArticleDeleteView(DeleteView):
     context_object_name = 'batman'
     success_url = reverse_lazy('home')
 ```
+12) Create an achor tag in **_detail.htm_**
+```html
+<a href="{% url 'article_delete' batman.pk %}">Delete this article</a>
+```
+Then runserver to see if it is works
 </details>
+
