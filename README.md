@@ -603,4 +603,112 @@ class ArticleDeleteView(DeleteView):
 ```
 Then runserver to see if it is works
 </details>
+### 07)ProjectSeven
 
+In this project, we want to make a ToDo App.
+Create a new project, setting the project, static and template folder, create new urls.py in app, and create a superuser.
+
+1) In **_models.py_** insert the following code. and register it in **_admin.py_**. then make migrations
+ ```python
+ from django.db import models
+class Todo(models.Model):
+    complete = models.BooleanField(default=False)
+    todotext = models.CharField(max_length = 50)
+    def __str__(self):
+        return self.todotext
+ ```
+ 2) Create **_forms.py_** and inser the following code:
+ ```python
+ from django import forms
+class TodoForm(forms.Form):
+    text = forms.CharField(max_length = 50,
+        widget=forms.TextInput(
+            attrs={
+                'class':'form-control',
+                'placeholder': 'A Django TODO'
+            }
+        ))
+ ```
+ 3) In **_views.py_**. insert the following code:
+ ```python
+ from django.shortcuts import render, redirect
+from django.views.decorators.http import require_POST
+# Create your views here.
+from .forms import TodoForm
+from .models import Todo
+
+def index(request):
+    mytodo = Todo.objects.order_by('id')
+    form = TodoForm()
+    context = {'mytodo': mytodo, 'form': form}
+    return render(request, 'todo/index.html', context)
+
+@require_POST
+def addNewTodo(request):
+    form = TodoForm(request.POST)
+    if form.is_valid():
+        my_new_todo = Todo(todotext = request.POST['text'])
+        my_new_todo.save()
+
+    return redirect('index')
+
+def completeTodo(request, todo_id):
+    mytodo = Todo.objects.get(pk=todo_id)
+    mytodo.complete = True
+    mytodo.save()
+
+    return redirect('index')
+
+def deleteTodo (request):
+    Todo.objects.filter(complete__exact = True).delete()
+    return redirect('index')
+
+def deleteAllTodo (request):
+    Todo.objects.all().delete()
+    return redirect('index')
+ ```
+ 4) In **_index.html_**. 
+ ```html
+<form action="{% url 'add' %}" method="POST" role="form">
+						{% csrf_token %}
+						<div class="form-group">
+							<div class="input-group">
+							  {{ form.text }}
+							  <span class="input-group-btn">
+								  <button type="submit" class="btn btn-success" id="add-btn">Do it <i class="fas fa-check-circle"></i>
+
+</button>
+							  </span>
+							</div>
+						</div>
+					</form>
+
+					<div class="row t10">
+						<div class="col-lg-12">
+							<div class="btn-toolbar">
+								<a href="{% url 'delete' %}">
+									<button type="button" class="btn btn-danger btn-block">
+										<i class="fas fa-trash-alt"></i> DELETE COMPLETED
+									</button>
+								</a>
+								<br>
+								<a href="{% url 'delete_all' %}">
+									<button type="button" class="btn btn-danger btn-block">
+										<i class="fas fa-trash-alt"></i> Delete All
+									</button>
+								</a>
+
+							</div>
+						</div>
+					</div>
+
+					<ul class="list-group t20">
+						{% for t in mytodo %}
+							{% if t.complete %}
+								<li class="list-group-item todo-completed">{{t.todotext}}</li>
+							{% else %}
+								<a href="{% url 'complete' t.id %}"><li class="list-group-item">{{t.todotext}}</li></a>
+							{% endif %}
+						{% endfor %}
+```
+runserver
